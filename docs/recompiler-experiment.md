@@ -12,3 +12,9 @@ This is an initial, local experiment, not a working game port.
 - No runtime or executable game was built, no gameplay was tested through this framework, and no 60 FPS claim can be made. The next technical milestone is to build a minimal runtime/project, refine code boundaries and compare boot/overlay behavior with the original.
 
 The tool's own platform and build instructions are in the upstream repository. Do not assume arbitrary new versions have the same CLI behavior or compatibility.
+
+## Disc probe and strict generation
+
+The upstream `probe_disc.py` identified `SLUS-00076`, 30 tracks and entry `0x800114e4`, and generated a local game configuration plus 267 first-pass entry/JAL seeds. Running `psxrecomp-game` with those seeds and `--strict` completed and produced 80 C shards and 931 dispatch entries. These are analysis/generation counts, not proof of valid functions or coverage. The output remains local and ignored.
+
+The generation log reported that the mid-function split pre-pass **did not converge after 256 passes** and warned of possible dispatch misses, plus out-of-function control-flow warnings. The resulting program has not been linked to a runtime or run. The seed list is heuristic and overlays are still unverified. This result does not establish bootability, compatibility or frame rate; resolve and test these warnings as the build proceeds. Local paths: `build/loaded-probe/game.toml`, `build/loaded-probe/seeds.txt`, `build/loaded-probe/generation.log`, and `build/loaded-probe/generated/`.

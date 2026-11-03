@@ -68,3 +68,5 @@ The native TEXT library also models the observed 16-entry PS1 address-relocation
 The GFX routine also walks 16-byte records between the file-relative offsets in header words 4 and 5, adding the file base to the third 32-bit word in each record. `loaded_level_gfx_record` exposes those four raw words with bounds checks. The range and embedded offsets were checked across all 15 supplied levels. The meaning of the fields and the data they reference is not yet established; runtime confirmation remains pending.
 
 An experimental local build of PSXRecomp has parsed the main executable and generated unvalidated C. See [the experiment notes](docs/recompiler-experiment.md) for limitations, the concrete false-positive candidate, and upstream licensing. No game-derived output is included in this repository.
+
+A disc-specific first-pass seed list has been generated locally. Strict code generation completed but reported a nonconvergent control-flow pass and possible dispatch misses; the generated code has not been linked or executed. See [experiment notes](docs/recompiler-experiment.md).
