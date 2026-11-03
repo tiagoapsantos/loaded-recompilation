@@ -26,3 +26,13 @@ int loaded_level_text_parse(LoadedLevelText *out, const uint8_t *data, size_t si
     *out = view;
     return 1;
 }
+
+int loaded_level_text_addresses(const LoadedLevelText *view, uint32_t ps1_base,
+                                uint32_t out_addresses[16])
+{
+    size_t i;
+    if (!view || !out_addresses) return 0;
+    for (i = 0; i < 16; ++i)
+        out_addresses[i] = ps1_base + view->offsets[i];
+    return 1;
+}

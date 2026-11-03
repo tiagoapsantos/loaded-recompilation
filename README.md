@@ -60,3 +60,5 @@ The 60 FPS report was a single observation at the title screen, not a gameplay b
 Performance target: 60 distinct rendered frames per second during demanding gameplay, without changing game speed. See [performance validation](docs/performance.md). This remains an unverified target until a native build exists and is benchmarked.
 
 `tools/analyze_frame_times.py` summarizes captured frame timestamps and identifies frame-time spikes. See [performance validation](docs/performance.md) for its CSV format and limitations.
+
+The native TEXT library also models the observed 16-entry PS1 address-relocation loop: `loaded_level_text_addresses` computes the addresses from a validated file view and a supplied emulated base, using 32-bit wraparound. It does not modify the source or implement the remaining initialization code. A C test checks representative values, wraparound and invalid arguments; run it with `ctest --test-dir build -C Release` after building with CMake.
