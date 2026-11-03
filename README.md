@@ -72,3 +72,5 @@ An experimental local build of PSXRecomp has parsed the main executable and gene
 A disc-specific first-pass seed list has been generated locally. Strict code generation completed but reported a nonconvergent control-flow pass and possible dispatch misses; the generated code has not been linked or executed. See [experiment notes](docs/recompiler-experiment.md).
 
 An experimental Windows executable linking the generated main-executable code has been built locally. A bounded headless test reached BIOS execution, but did not confirm the game's entry point or title screen. It is not a playable release; see [experiment notes](docs/recompiler-experiment.md).
+
+A debug-enabled headless run has since confirmed that the main executable bytes are present in guest memory and that 256-byte samples of two startup overlays match the supplied disc files at their expected address. This does not yet establish a correct title screen, playable game, or 60 FPS.
