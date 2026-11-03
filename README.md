@@ -22,6 +22,7 @@ Python 3 is required. The texture preview tool also requires Pillow. The scripts
 - `tools/disasm_mips.py` and `tools/inventory_exe.py`: limited static inspection; results are heuristic and may include false positives.
 - `tools/asset_catalog.py`: inventory level and player files on the supplied disc.
 - `tools/extract_level_text.py`: split a known level TEXT container into byte-preserving sections.
+- `tools/inspect_level_gfx.py`: inspect observed level graphics offset tables.
 - `tools/preview_level_texture.py`: render an experimental single-palette texture-sheet preview. Palette selection, transparency and blending do not yet match the game.
 
 Each script supports `--help`. Generated data belongs in the ignored `disc/` and `analysis/` folders. Avoid uploading copyrighted game contents or generated game imagery.
@@ -29,3 +30,5 @@ Each script supports `--help`. Generated data belongs in the ignored `disc/` and
 ## Status
 
 This is exploratory work. A native Windows version would require extensive additional analysis, code reconstruction, platform implementation, and testing.
+
+
