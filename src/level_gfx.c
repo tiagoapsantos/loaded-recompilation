@@ -33,3 +33,19 @@ int loaded_level_gfx_address(const LoadedLevelGfx *view, size_t index,
     *out_address = ps1_base + offset;
     return 1;
 }
+
+int loaded_level_gfx_record(const LoadedLevelGfx *view, size_t index,
+                            uint32_t out_words[4])
+{
+    size_t begin, end, pos, i;
+    uint32_t words[4];
+    if (!view || !view->bytes || !out_words) return 0;
+    begin = (size_t)view->header[4]; end = (size_t)view->header[5];
+    if (begin > end || end > view->size || (end - begin) % 16 != 0 ||
+        index >= (end - begin) / 16) return 0;
+    pos = begin + index * 16;
+    for (i = 0; i < 4; ++i) words[i] = read_le32(view->bytes + pos + i * 4);
+    if ((size_t)words[2] >= view->size) return 0;
+    for (i = 0; i < 4; ++i) out_words[i] = words[i];
+    return 1;
+}

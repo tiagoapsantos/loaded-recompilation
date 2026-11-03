@@ -16,4 +16,8 @@ int loaded_level_gfx_parse(LoadedLevelGfx *out, const uint8_t *data, size_t size
    Return 0 if the index is invalid; no source data is modified. */
 int loaded_level_gfx_address(const LoadedLevelGfx *view, size_t index,
                              uint32_t ps1_base, uint32_t *out_address);
+/* Read four raw words from one observed 16-byte record bounded by header
+   offsets 4 and 5. Returns 0 for invalid ranges, index or embedded offset. */
+int loaded_level_gfx_record(const LoadedLevelGfx *view, size_t index,
+                            uint32_t out_words[4]);
 #endif
