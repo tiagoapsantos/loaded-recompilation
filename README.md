@@ -70,3 +70,5 @@ The GFX routine also walks 16-byte records between the file-relative offsets in 
 An experimental local build of PSXRecomp has parsed the main executable and generated unvalidated C. See [the experiment notes](docs/recompiler-experiment.md) for limitations, the concrete false-positive candidate, and upstream licensing. No game-derived output is included in this repository.
 
 A disc-specific first-pass seed list has been generated locally. Strict code generation completed but reported a nonconvergent control-flow pass and possible dispatch misses; the generated code has not been linked or executed. See [experiment notes](docs/recompiler-experiment.md).
+
+An experimental Windows executable linking the generated main-executable code has been built locally. A bounded headless test reached BIOS execution, but did not confirm the game's entry point or title screen. It is not a playable release; see [experiment notes](docs/recompiler-experiment.md).
