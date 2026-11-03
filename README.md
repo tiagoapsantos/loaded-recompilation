@@ -44,3 +44,5 @@ cmake -S . -B build
 cmake --build build --config Release
 build/Release/loaded-text-info.exe disc/LEVELS/L1TEXT.BIN
 ```
+
+The supplied PlayStation disc was started manually in DuckStation 0.1-12442 and reached the title screen. The emulator reported 60 FPS at the time of inspection. This verifies an emulated boot only; the memory observations and a native Windows build remain unverified.
