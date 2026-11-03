@@ -74,3 +74,5 @@ A disc-specific first-pass seed list has been generated locally. Strict code gen
 An experimental Windows executable linking the generated main-executable code has been built locally. A bounded headless test reached BIOS execution, but did not confirm the game's entry point or title screen. It is not a playable release; see [experiment notes](docs/recompiler-experiment.md).
 
 A debug-enabled headless run has since confirmed that the main executable bytes are present in guest memory and that 256-byte samples of two startup overlays match the supplied disc files at their expected address. This does not yet establish a correct title screen, playable game, or 60 FPS.
+
+A bounded headless smoke test of the experimental build reached the main menu and a one-player level, and a Right input visibly moved the player. Gameplay compatibility, audio and 60 FPS are not yet established; see [experiment notes](docs/recompiler-experiment.md).
