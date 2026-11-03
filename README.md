@@ -32,3 +32,15 @@ Each script supports `--help`. Generated data belongs in the ignored `disc/` and
 This is exploratory work. A native Windows version would require extensive additional analysis, code reconstruction, platform implementation, and testing.
 
 
+
+## Native asset reader
+
+The C library in `src/level_text.c` validates the observed outer TEXT container, and `loaded-text-info` reports its key offsets. This is a research utility and first native building block, not game code or a Windows game. It was compiled with MSVC and checked against all 15 supplied level TEXT files and an invalid input. The parser borrows its input buffer and does not interpret the unknown sections.
+
+Build with CMake and a C compiler:
+
+```powershell
+cmake -S . -B build
+cmake --build build --config Release
+build/Release/loaded-text-info.exe disc/LEVELS/L1TEXT.BIN
+```

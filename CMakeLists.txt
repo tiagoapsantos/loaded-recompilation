@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+project(loaded_research C)
+add_library(loaded_level_text STATIC src/level_text.c)
+target_include_directories(loaded_level_text PUBLIC include)
+set_property(TARGET loaded_level_text PROPERTY C_STANDARD 99)
+add_executable(loaded-text-info src/text_info.c)
+target_link_libraries(loaded-text-info PRIVATE loaded_level_text)
+set_property(TARGET loaded-text-info PROPERTY C_STANDARD 99)

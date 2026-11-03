@@ -3,3 +3,5 @@ disc/
 analysis/
 tools/__pycache__/
 *.pyc
+build/
+publication/
