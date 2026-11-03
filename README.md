@@ -62,3 +62,5 @@ Performance target: 60 distinct rendered frames per second during demanding game
 `tools/analyze_frame_times.py` summarizes captured frame timestamps and identifies frame-time spikes. See [performance validation](docs/performance.md) for its CSV format and limitations.
 
 The native TEXT library also models the observed 16-entry PS1 address-relocation loop: `loaded_level_text_addresses` computes the addresses from a validated file view and a supplied emulated base, using 32-bit wraparound. It does not modify the source or implement the remaining initialization code. A C test checks representative values, wraparound and invalid arguments; run it with `ctest --test-dir build -C Release` after building with CMake.
+
+`loaded-gfx-info` and `loaded_level_gfx` inspect the observed level GFX header and its nested offset table. They preserve the source bytes and model 32-bit base addition for entries, including zero offsets. The native reader was compared with the Python inspector across all 15 supplied level GFX files and tested with malformed tables. This does not yet decode geometry or render levels.
