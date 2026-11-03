@@ -15,3 +15,12 @@ The target for the prospective native Windows port is **60 distinct rendered fra
 - Define a concrete frame-time threshold and acceptable outlier budget once a runnable build and representative workloads exist. Avoid claiming 60 FPS stable based solely on a short average or a menu.
 - Validate gameplay speed, physics, input, animation and audio independently when decoupling game updates from rendering. Compare against the original and check that increasing the render rate does not accelerate game logic.
 - Keep original game assets local. Record benchmark results without publishing disc contents.
+
+## Analyze a captured sequence
+
+`tools/analyze_frame_times.py` accepts a CSV with a `timestamp_s` column containing one presentation timestamp per **distinct frame**, in seconds and strictly increasing. It reports average FPS, median/95th/99th percentile and maximum frame time, and the percentage of intervals longer than the target budget plus a one-microsecond rounding tolerance. Percentiles use the nearest-rank method. The input must come from a verified capture method; this script does not capture frames, prove gameplay updates are unique, or validate game speed.
+
+```powershell
+python tools/analyze_frame_times.py path/to/frames.csv --target-fps 60 --output analysis/frame-report.json
+python -m unittest discover -s tests -v
+```

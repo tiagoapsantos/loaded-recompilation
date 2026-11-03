@@ -58,3 +58,5 @@ The MSVC build was compared pixel-for-pixel against the Python preview for two p
 The 60 FPS report was a single observation at the title screen, not a gameplay benchmark or evidence of a constant 60 FPS on original hardware. Gameplay performance, emulator settings, and timing remain to be tested, including during heavy action.
 
 Performance target: 60 distinct rendered frames per second during demanding gameplay, without changing game speed. See [performance validation](docs/performance.md). This remains an unverified target until a native build exists and is benchmarked.
+
+`tools/analyze_frame_times.py` summarizes captured frame timestamps and identifies frame-time spikes. See [performance validation](docs/performance.md) for its CSV format and limitations.

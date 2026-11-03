@@ -5,3 +5,4 @@ tools/__pycache__/
 *.pyc
 build/
 publication/
+tests/__pycache__/
