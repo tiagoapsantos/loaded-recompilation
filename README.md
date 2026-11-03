@@ -46,3 +46,11 @@ build/Release/loaded-text-info.exe disc/LEVELS/L1TEXT.BIN
 ```
 
 The supplied PlayStation disc was started manually in DuckStation 0.1-12442 and reached the title screen. The emulator reported 60 FPS at the time of inspection. This verifies an emulated boot only; the memory observations and a native Windows build remain unverified.
+
+`loaded-text-preview` is a native C utility that writes a 1024x512 PPM texture-sheet preview from a local level TEXT file. It uses a single selected 16-color palette and renders opaque RGB; it does not reproduce per-texture palette selection or PS1 transparency. For example:
+
+```powershell
+build/Release/loaded-text-preview.exe disc/LEVELS/L1TEXT.BIN 0 analysis/L1-preview.ppm
+```
+
+The MSVC build was compared pixel-for-pixel against the Python preview for two palettes in each of the 15 supplied levels; invalid palette selections were also rejected.
