@@ -1,0 +1,5 @@
+# Local disc contents and all generated analysis may contain copyrighted game data.
+disc/
+analysis/
+tools/__pycache__/
+*.pyc
