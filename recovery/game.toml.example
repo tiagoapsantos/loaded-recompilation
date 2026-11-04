@@ -1,0 +1,55 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Loaded"
+id = "SLUS-00076"
+players = 2
+exe = "<WORKSPACE>/disc/SLUS_000.76"
+disc = "<OWN_CUE>"
+load_address = "0x80010000"
+entry_pc = "0x800114E4"
+text_size = "0x00047000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Loaded.bin"
+cue_name = "Loaded.cue"
+boot_exe = "SLUS_000.76"
+known_sizes = [612199728]
+known_md5 = [
+  "7cf615ad7e2babad408b1ae248d17de8",
+]
+known_sha1 = [
+  "8446c08c7bd31cefb59847e1cbd0ff9a699d749b",
+]
+known_crc32 = [
+  "c4a432d8",
+]
+
+[recompiler]
+seeds = "<WORKSPACE>/build/loaded-probe/seeds.txt"
+out_dir = "<WORKSPACE>/build/loaded-probe/generated"
+strict = true
+
+[runtime]
+window_title = "Loaded Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+p1_device = "auto"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 30
+required_disc_fp = "d212b4add5a2d8d8df2f5a342ed23f15624ed79f8fa12c52a2638ed4622ec08f"
